@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<Container version="2">
+	<TemplateURL>https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/plex-ldap.xml</TemplateURL>
+	<Name>Shlink</Name>
+	<Repository>shlinkio/shlink</Repository>
+	<Registry>https://hub.docker.com/r/shlinkio/shlink/</Registry>
+	<Project>https://github.com/shlinkio/shlink</Project>
+	<Icon>https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/shlink.png</Icon>
+	<Network>bridge</Network>
+	<BindTime>true</BindTime>
+	<Privileged>false</Privileged>
+	<Category>Tools:</Category>
+	<Overview>
+		A self-hosted and PHP-based URL shortener with CLI and REST interfaces.
+	</Overview>
+	<Description>
+		A self-hosted and PHP-based URL shortener with CLI and REST interfaces.
+	</Description>
+	<Networking>
+		<Mode>bridge</Mode>
+		<Publish>
+			<Port>
+				<HostPort>8080</HostPort>
+				<ContainerPort>8080</ContainerPort>
+				<Protocol>tcp</Protocol>
+			</Port>
+		</Publish>
+	</Networking>
+	<Data/>
+	<Environment>
+	<Variable>
+		<Value></Value>
+		<Name>SHORT_DOMAIN_HOST</Name>
+		<Mode/>
+	</Variable>
+	<Variable>
+		<Value></Value>
+		<Name>SHORT_DOMAIN_SCHEMA</Name>
+		<Mode/>
+	</Variable>
+	</Environment>
+	<Config Name="Short domain host" Target="SHORT_DOMAIN_HOST" Default="example.com" Mode="" Description="The custom short domain used for this shlink instance. For example doma.in." Type="Variable" Display="always" Required="true" Mask="false"></Config>
+	<Config Name="Domain scheme" Target="SHORT_DOMAIN_SCHEMA" Default="https" Mode="" Description="Either http or https." Type="Variable" Display="always" Required="true" Mask="false"></Config>
+	<Config Name="Database driver" Target="DB_DRIVER" Default="" Mode="" Description="sqlite (which is the default value), mysql, maria or postgres." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+	<Config Name="LDAP port" Target="2389" Default="2389" Mode="tcp" Description="Container Port: 2389" Type="Port" Display="always" Required="false" Mask="false">2389</Config>
+</Container>
